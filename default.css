@@ -1,6 +1,9 @@
-body{
-    background-color:black;
-    color:white;
+html,
+body {
+  position: fixed;
+  overflow: hidden;
+  background-color:black;
+  color:white;
 }
 span.bold{
     font-weight:bold;
