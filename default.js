@@ -65,6 +65,7 @@ function fx(){
     var el = l[z];
     t = getInner(getElementByColor2(l[z], true));
     setInner(getElementByColor2(l[z],true), t - 1);
+    console.log("NOTICE: Removed one land from color: "+l[z]+"...");
 }
 function calc2(){
     var s = 0;
@@ -75,6 +76,7 @@ function calc2(){
         calculate(c,s);
     }
     if (totalManaSources2() > getInner("lnd")){
+        console.log("ERROR 1: Sources greater than requested lands ("+totalManaSources2()+">"+getInner("lnd")+") Automatically fixed by removing one at random...");
         fx();
     }
 }
@@ -98,11 +100,14 @@ function rst(){
 function calculate(color, symbols) {
     var lands = parseInt(getInner("lnd"));
 	var totSym = totalManaSymbols2();
-    var sources = Math.round(getVal(getElementByColor2(color, false)) * lands / totSym);
-    if (totSym == 0){
+	var sources;
+	if (totSym == 0){
         sources = 0;
+    } else {
+		sources = Math.round(getVal(getElementByColor2(color, false)) * lands / totSym);
     }
     if (isNaN(sources)){
+        console.log("ERROR 2: Failed to calculate (divide by zero) was a form blank? ...");
         sources = 0;
     }
     setInner(getElementByColor2(color, true), sources);
