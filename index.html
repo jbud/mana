@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Mana Calculator" />
+<meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+    <title>Mana Calculator</title>
+
+
+    <!-- MTGManaCalculator references -->
+    <link href="default.css" rel="stylesheet" />
+    <script src="default.js"></script>
+    <link rel="apple-touch-icon" href="app.png" />
+<link rel="apple-touch-startup-image" href="app.png">
+
+</head>
+<body>
+    <div><img src="mtg.png" style="width:100%" />
+        <h1 style="text-align:center;">Mana Calculator</h1></div>
+    <div style="text-align:center;width:100%;margin:auto;padding-top:100px;">
+        <table>
+            <tr>
+                <td>Symbols</td>
+                <td><input type="number" min="0" pattern="[0-9]*" inputmode="numeric" id="whiteSym" class="small"  value="0" onfocus="clr(this.id)" onkeyup="calc()"/></td>
+                <td><input type="number" min="0" pattern="[0-9]*" inputmode="numeric" id="blueSym" class="small" value="0" onfocus="clr(this.id)" onkeyup="calc()"/></td>
+                <td><input type="number" min="0" pattern="[0-9]*" inputmode="numeric" id="blackSym" class="small" value="0" onfocus="clr(this.id)" onkeyup="calc()"/></td>
+                <td><input type="number" min="0" pattern="[0-9]*" inputmode="numeric" id="redSym" class="small" value="0" onfocus="clr(this.id)" onkeyup="calc()"/></td>
+                <td><input type="number" min="0" pattern="[0-9]*" inputmode="numeric" id="greenSym" class="small" value="0" onfocus="clr(this.id)" onkeyup="calc()"/></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><button style="background-color:white;" >&nbsp;</button></td>
+                <td><button style="background-color:blue;">&nbsp;</button></td>
+                <td><button style="background-color:black;" >&nbsp;</button></td>
+                <td><button style="background-color:red;" >&nbsp;</button></td>
+                <td><button style="background-color:green;" >&nbsp;</button></td>
+                <td><button onclick="rst()">Reset</button></td>
+            </tr>
+            <tr>
+                <td>Lands</td>
+                <td><span id="whiteSource" class="bold">0</span></td>
+                <td><span id="blueSource" class="bold">0</span></td>
+                <td><span id="blackSource" class="bold">0</span></td>
+                <td><span id="redSource" class="bold">0</span></td>
+                <td><span id="greenSource" class="bold">0</span></td>
+            </tr>
+
+        </table>
+        Lands: <span id="lnd">17</span> <input id="land" type="range" min="1" max="45" value="17" onchange="onChng(this.value)" oninput="onChng(this.value)" />
+        <p>Instructions:</p>
+        <p>* Set the number of symbols using the above forms then set the land slider to the desired number of lands.</p>
+    </div>
+    <small>By Joe Jackson 2011</small>
+</body>
+</html>
